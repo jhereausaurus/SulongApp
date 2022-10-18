@@ -1,6 +1,7 @@
-import { Text } from 'react-native';
+import { Text, Image } from 'react-native';
 import React from 'react';
 import CustomButton from '../CustomButton';
+
 
 const SocialSignInButtons = () => {
   
@@ -11,9 +12,7 @@ const SocialSignInButtons = () => {
     const onSignInGoogle = () => {
         console.warn('Google');
     };
-    const onSignInApple= () => {
-        console.warn('Apple');
-    };
+  
     
   return (
     <>
@@ -23,6 +22,7 @@ text="Sign Facebook"
 onPress={onSignInFacebook} 
 bgColor="#E7EAF4"
 fgColor="#4765A9"
+
 />
 
 <CustomButton 
@@ -32,12 +32,7 @@ text="Sign Google"
 fgColor="#DD4D44"
  />
 
-<CustomButton 
-text="Sign Iphone"
- onPress={onSignInApple}
- bgColor="#e3e3e3"
- fgColor="#363636"
- />
+
  
     </>
   )

@@ -7,23 +7,33 @@
  */
 
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
-
+import { SafeAreaView, StyleSheet, Text, View, Image, TouchableOpacity, Button,  } from 'react-native';
+import { createAppContainer } from "react-navigation-drawer";
+import { Dimensions } from "react-native";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+//permanent code to dito
 import Navigation from './src/navigation';
 import HomeScreen from './src/screens/HomeScreen';
 
+//testing code
 
-
-
-
+//permanent code starting here
 const App = () => {
 return (
   
     <SafeAreaView style={styles.root}>
- <Navigation/>
+       <Navigation/>
+       
     </SafeAreaView>
+
   );
 };
+
+
+
+
+
 
 const styles = StyleSheet.create({
 root: {
@@ -32,7 +42,15 @@ root: {
 },
 App:{
   backgroundColor: 'White',
-}
+},
+container: {
+  backgroundColor: '#fff',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: 50
+},
+
 });
 
 export default App;
+

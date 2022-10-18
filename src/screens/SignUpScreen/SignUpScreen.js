@@ -7,11 +7,15 @@ import SocialSignInButtons from '../../components/SocialSignInButtons';
 import { useNavigation } from '@react-navigation/native';
 import {useForm} from 'react-hook-form'
 
+
+
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const PASS_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+
 
 const SignUpScreen = () => {
   const {control, handleSubmit, watch} = useForm();
-  const pwd = watch('password');
+  const pwd = watch('Password');
     const Navigation = useNavigation();
    
 
@@ -54,8 +58,8 @@ maxLength: {value: 24, message: 'Firstname should be maximum 24 characters long'
 <CustomInput 
 name="MiddleName"
 control={control}
-placeholder= "MiddleName" 
-rules={{required: 'MiddleName is Required'}}
+placeholder= "MiddleName (Optional)" 
+
  />
  <CustomInput 
 name="LastName"
@@ -82,26 +86,28 @@ control={control}
 placeholder= "Email" 
 rules={{pattern: {value: EMAIL_REGEX, message: 'email is invalid'}}}
  />
+
  <CustomInput 
 name="Password"
 control={control}
 placeholder= "Password"
 secureTextEntry
+
 rules={{
-    required: 'Password is Required',
-minLength: {value: 7, message: 'Password should be minimum 10 characters long', 
-},
+    pattern: {value: PASS_REGEX, message: 'Error password must be: \n - Uppercase and Lowercase Letters (A - z) \n - Numeric Character (0-9) \n - Special Character (!,%,@,#,etc) \n - Minimum Password Length is 8'}
+
 }} 
+
  />
 
 <CustomInput 
-name="Repeat-Password"
+name="Password-Repeat"
 control={control}
 placeholder= "Repeat Password" 
 secureTextEntry
 rules={{
-    validate: value =>
-    value === pwd || 'Password do not match'
+    validate: value => value === pwd ||  'Password do not match',
+    required: { value: PASS_REGEX, message: 'password must contain special letters, and should be in Upper and Lower case'}
 }}
  />
 
