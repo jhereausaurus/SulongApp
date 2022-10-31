@@ -6,7 +6,8 @@ import { Card } from '@rneui/base';
 import CustomButton from '../../components/CustomButton';
 import CardAnnouncement from '../CardAnnouncement/CardAnnouncement';
 import Reporting from '../IncidentReport/Reporting';
-
+import AppHeader from '../../components/AppHeader';
+import Colors from '../../constants/Colors';
 const data = [
   { label: 'Request and Inquiry', value: '1' },
   { label: 'Reservation', value: '2' },
@@ -14,15 +15,20 @@ const data = [
 
 ];
 
-const Dashboard = () => {
+const Dashboard = (route, navigation) => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
   const [text] = React.useState(null);
-
+  
   return (
+    
     <>
     <ScrollView>
     <View style={styles.container}>
+
+   
+
+
             <Card containerStyle={{ marginTop: 110, width: 355, height: 660 }}>
                 <Card.Title style = {styles.TitleText}> Dashboard</Card.Title>
         <View sytle={{backgroundColor:'black', borderRadius:15}}>

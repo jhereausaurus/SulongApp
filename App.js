@@ -14,7 +14,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 //permanent code to dito
 import Navigation from './src/navigation';
-import HomeScreen from './src/screens/HomeScreen';
+import OnboardingScreen from './src/screens/OnboardingScreen/OnboardingScreen';
+import Dashboard from './src/screens/DashboardScreen/Dashboard';
+import HomeScreen from './src/screens/HomeScreen/HomeScreen';
+
 
 //testing code
 

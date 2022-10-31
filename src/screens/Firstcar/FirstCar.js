@@ -20,7 +20,9 @@ import {CurrentRenderContext, useNavigation} from '@react-navigation/native';
 import Header from '../../components/Header/Header';
 
 
+
 const data = [
+  
   {
     id: 1,
     name: 'Annoucement',
@@ -54,7 +56,7 @@ const renderItem = ({item}) => {
     
     <View style={{alignItems: 'center',top: 60}}>
     
-        <TouchableOpacity>
+        <TouchableOpacity >
         
       <Image
           source={{uri: item.url}}
@@ -74,11 +76,12 @@ const renderItem = ({item}) => {
     </View>
    
   );
+  
 };
 
 const FirstCar = () => {
   const [index, setIndex] = useState(0);
-  const navigation = useNavigation();
+
   const isCarousel = useRef(null);
 
 

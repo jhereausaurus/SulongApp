@@ -29,6 +29,7 @@ import LogInPageScreen from '../LogInPageScreen';
 import FirstCar from '../Firstcar/FirstCar';
 import Dashboard from '../DashboardScreen/Dashboard';
 import CarouselCards from '../AboutUs/CarouselCards';
+import Settings from '../Settings/Settings';
 
 
 
@@ -44,7 +45,7 @@ export default function HomeScreen() {
   // Scale Intially must be One...
   const scaleValue = useRef(new Animated.Value(1)).current;
   const closeButtonOffset = useRef(new Animated.Value(0)).current;
-
+ const Navigation = useNavigation();
   return (
 
 
@@ -67,11 +68,12 @@ export default function HomeScreen() {
           marginTop: 20
         }}>Jher Domz</Text>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => Navigation.replace('Profile')}>
           <Text style={{
             marginTop: 6,
             color: 'black'
           }}>View Profile</Text>
+          
         </TouchableOpacity>
 
         <View style={{ flexGrow: 1, marginTop: 70 }}>
@@ -251,7 +253,11 @@ const TabButton = (currentTab, setCurrentTab, title, image) => {
         
         setCurrentTab(Navigation.navigate('CarouselCards'));
       }
-    
+      else if (title == "Settings") {
+        
+        
+        setCurrentTab (Navigation.replace('Settings'));
+      }
 
 
       else {

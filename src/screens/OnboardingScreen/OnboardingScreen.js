@@ -12,8 +12,9 @@ import {
   Button
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import AppHeader from '../../components/AppHeader'
 const {width, height} = Dimensions.get('window');
-
+import Colors from '../../constants/Colors';
 const COLORS = {primary: 'white', white: 'black'};
 
 const slides = [
@@ -45,6 +46,7 @@ const slides = [
 ];
 
 const Slide = ({item}) => {
+  const Navigation = useNavigation();
   return (
     <View style={{alignItems: 'center'}}>
       <Image
@@ -58,7 +60,7 @@ const Slide = ({item}) => {
   );
 };
 
-const OnboardingScreen = ({navigation}) => {
+const OnboardingScreen = ({navigation, route}) => {
   const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
   const ref = React.useRef();
   const updateCurrentSlideIndex = e => {
@@ -76,13 +78,23 @@ const OnboardingScreen = ({navigation}) => {
     }
   };
 
-  const skip = () => {
-    const lastSlideIndex = slides.length - 1;
-    const offset = lastSlideIndex * width;
-    ref?.current.scrollToOffset({offset});
-    setCurrentSlideIndex(lastSlideIndex);
-  };
+  const Enter = () => {
+    
+    if ( currentSlideIndex == '0') {
+      navigation.navigate('CardAnnouncement');
+  }
 
+  else if ( currentSlideIndex == '1') {
+    
+    navigation.navigate('RequestAndI');
+  }
+  else if ( currentSlideIndex == '2') {
+    navigation.navigate('ReservationSCreen');
+  }
+ 
+
+}
+ 
 
 
 
@@ -122,10 +134,18 @@ const OnboardingScreen = ({navigation}) => {
           {currentSlideIndex == slides.length - 1 ? (
             <View style={{height: 50}}>
               <TouchableOpacity
-                style={styles.btn}
-                onPress={() => navigation.replace('HomeScreen')}>
-                <Text style={{fontWeight: 'bold', fontSize: 15}}>
-                  GET STARTED
+                 activeOpacity={0.8}
+                 style={[
+                   styles.btn,
+                   {
+                     borderColor: COLORS.white,
+                     borderWidth: 1,
+                     backgroundColor: 'transparent',
+                   },
+                  ]}
+                onPress={() => navigation.replace('Reporting')}>
+                <Text style={{fontWeight: 'bold', fontSize: 15, color: COLORS.white,}}>
+                  ENTER
                 </Text>
               </TouchableOpacity>
             </View>
@@ -141,14 +161,14 @@ const OnboardingScreen = ({navigation}) => {
                     backgroundColor: 'transparent',
                   },
                 ]}
-                onPress={skip}>
+                onPress={Enter}>
                 <Text
                   style={{
                     fontWeight: 'bold',
                     fontSize: 15,
                     color: COLORS.white,
                   }}>
-                  SKIP
+                  ENTER
                 </Text>
               </TouchableOpacity>
               <View style={{width: 15,}} />

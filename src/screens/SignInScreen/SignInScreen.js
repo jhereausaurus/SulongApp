@@ -64,7 +64,7 @@ rules={{required: 'Password Is Required', minLength: {value: 3, message: 'passwo
     <CustomButton text="Forgot Password?" onPress={onForgotPasswordPressed} type="TERTIARY"  />
 
 
-    <SocialSignInButtons />
+    {/* <SocialSignInButtons /> */}
  
  <CustomButton 
  text="Dont have an account yet? create one"

@@ -4,14 +4,20 @@ import Carousel, { Pagination } from 'react-native-snap-carousel'
 import CarouselCardItem , { SLIDER_WIDTH, ITEM_WIDTH }from './CarouselCardItem'
 import data from '../../components/data/data'
 import { ScrollView } from 'react-native-gesture-handler'
+import AppHeader from '../../components/AppHeader'
+import Colors from '../../constants/Colors'
+import HomeScreen from '../HomeScreen/HomeScreen'
 
-const CarouselCards = () => {
+const CarouselCards = (route, navigation) => {
   const [index, setIndex] = React.useState(0)
   const isCarousel = React.useRef(null)
 
   return (
     <View>
+ 
+
         <ScrollView>
+       
       <Carousel
         layout="tinder"
         layoutCardOffset={9}

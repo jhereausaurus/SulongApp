@@ -63,7 +63,7 @@ const LogInPageScreen = () => {
 
         <Text style={styles.jointext}> JOIN US WITH</Text>
 
-        <SocialSignInButtons />
+        {/* <SocialSignInButtons /> */}
 
         <CustomButton
           text="Dont have an account yet? click here"
